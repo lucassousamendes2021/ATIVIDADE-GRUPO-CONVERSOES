@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Dólar para Real</title>
+    <link rel="stylesheet" href="pagina2.css">
+</head>
+<body>
+
+    <main class="converter-card">
+        <h1>Conversor de Moedas</h1>
+
+        <div class="input-group">
+            <label for="dolarInput">Valor em Dólar</label>
+            <div class="input-wrapper">
+                <span class="currency-symbol">US$</span>
+                <input type="number" id="dolarInput" placeholder="0,00" step="0.01" min="0">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="cotacaoInput">Cotação do Dólar hoje</label>
+            <div class="input-wrapper">
+                <span class="currency-symbol">R$</span>
+                <input type="number" id="cotacaoInput" placeholder="Ex: 5.50" step="0.001" min="0">
+            </div>
+        </div>
+
+        <button class="btn-convert" id="btnCalcular">Converter para Real</button>
+
+        <div class="result-box" id="resultadoDiv">
+            <p class="result-title">Total Convertido</p>
+            <p class="result-value" id="resultadoTexto">R$ 0,00</p>
+        </div>
+    </main>
+
+    <script>
+        const dolarInput = document.getElementById('dolarInput');
+        const cotacaoInput = document.getElementById('cotacaoInput');
+        const btnCalcular = document.getElementById('btnCalcular');
+        const resultadoDiv = document.getElementById('resultadoDiv');
+        const resultadoTexto = document.getElementById('resultadoTexto');
+
+        btnCalcular.addEventListener('click', () => {
+            const valorDolar = parseFloat(dolarInput.value);
+            const valorCotacao = parseFloat(cotacaoInput.value);
+
+            if (isNaN(valorDolar) || isNaN(valorCotacao) || valorDolar <= 0 || valorCotacao <= 0) {
+                alert('Por favor, preencha todos os campos com valores maiores que zero.');
+                return;
+            }
+
+            const totalReal = valorDolar * valorCotacao;
+
+            const valorFormatado = totalReal.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+
+            resultadoTexto.textContent = valorFormatado;
+            resultadoDiv.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
