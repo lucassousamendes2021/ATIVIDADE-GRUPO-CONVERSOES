@@ -1,35 +1,35 @@
-// Seleciona os elementos do HTML através dos IDs
+// Seleciona os elementos do HTML pelos IDs
 const cmInput = document.getElementById('cmInput');
 const btnConverter = document.getElementById('btnConverter');
 const resultadoContainer = document.getElementById('resultadoContainer');
 const resultadoTexto = document.getElementById('resultadoTexto');
 
-// Função responsável por fazer o cálculo e mostrar na tela
+// Função que faz o cálculo e exibe o resultado
 function converterMedida() {
     const valorCm = cmInput.value;
 
-    // 1. Validação: Verifica se o usuário digitou algo
+    // Verifica se o campo está vazio
     if (valorCm === '') {
         alert('Por favor, digite um valor em centímetros.');
         return;
     }
 
-    // 2. Cálculo: Converte para número e divide por 100 (1 metro = 100 centímetros)
+    // Realiza a conversão (divide por 100)
     const valorMetros = parseFloat(valorCm) / 100;
 
-    // 3. Formatação: Transforma os pontos em vírgulas para o formato brasileiro
+    // Formata os números para o padrão brasileiro (com vírgula)
     const cmFormatado = parseFloat(valorCm).toLocaleString('pt-BR');
     const metrosFormatado = valorMetros.toLocaleString('pt-BR', { maximumFractionDigits: 4 });
 
-    // 4. Exibição: Modifica o texto do HTML e torna o bloco visível
+    // Insere o texto e exibe o bloco de resultado
     resultadoTexto.textContent = `${cmFormatado} cm = ${metrosFormatado} m`;
     resultadoContainer.style.display = 'block';
 }
 
-// Escuta o clique do mouse no botão "Converter"
+// Executa a função ao clicar no botão
 btnConverter.addEventListener('click', converterMedida);
 
-// Escuta o teclado e permite converter ao apertar a tecla "Enter"
+// Executa a função ao apertar a tecla "Enter" no teclado
 cmInput.addEventListener('keypress', function(evento) {
     if (evento.key === 'Enter') {
         converterMedida();
