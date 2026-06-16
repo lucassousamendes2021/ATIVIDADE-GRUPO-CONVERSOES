@@ -1,0 +1,144 @@
+/* ==========================================================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #111827, #1f2937);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   2. CONTAINER PRINCIPAL (CARD)
+   ========================================================================== */
+.converter-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #111827;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* ==========================================================================
+   3. CAMPOS DE ENTRADA (INPUT GROUPS)
+   ========================================================================== */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Símbolo da moeda fixo dentro do input */
+.currency-symbol {
+    position: absolute;
+    left: 16px;
+    color: #9ca3af;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+input {
+    width: 100%;
+    padding: 14px 16px 14px 50px; /* Abre espaço na esquerda para o símbolo */
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1f2937;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.2s ease;
+    background-color: #f9fafb;
+}
+
+input:focus {
+    border-color: #10b981; /* Verde esmeralda */
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+/* ==========================================================================
+   4. BOTÃO DE CONVERSÃO
+   ========================================================================== */
+.btn-convert {
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #10b981, #059669);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    transition: all 0.2s ease;
+    margin-bottom: 25px;
+}
+
+.btn-convert:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btn-convert:active {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   5. ÁREA DE RESULTADO (ORGANIZADA)
+   ========================================================================== */
+.result-box {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    display: none; /* Só aparece após o clique */
+}
+
+.result-title {
+    font-size: 0.9rem;
+    color: #166534;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.result-value {
+    font-size: 1.8rem;
+    color: #15803d;
+    font-weight: 800;
+}
