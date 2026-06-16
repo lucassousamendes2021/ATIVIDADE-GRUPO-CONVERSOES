@@ -1,15 +1,16 @@
 /* ==========================================================================
-   1. RESET E CONFIGURAÇÕES GERAIS
+   1. RESET GLOBAL & PALETA DE CORES (TEMA PREMIUM)
    ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #111827, #1f2937);
+    /* Fundo escuro moderno em degradê */
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -18,27 +19,31 @@ body {
 }
 
 /* ==========================================================================
-   2. CONTAINER PRINCIPAL (CARD)
+   2. CARD DO CONVERSOR
    ========================================================================== */
 .converter-card {
     background-color: #ffffff;
     width: 100%;
     max-width: 400px;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    padding: 35px 30px;
+    border-radius: 24px;
+    /* Sombra suave e profunda para dar efeito de flutuação */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
-    color: #111827;
+    color: #0f172a;
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 800;
     text-align: center;
     margin-bottom: 25px;
+    letter-spacing: -0.5px;
 }
 
 /* ==========================================================================
-   3. CAMPOS DE ENTRADA (INPUT GROUPS)
+   3. CAMPOS DE ENTRADA (INPUTS)
    ========================================================================== */
 .input-group {
     display: flex;
@@ -48,8 +53,8 @@ h1 {
 }
 
 label {
-    font-size: 0.85rem;
-    color: #6b7280;
+    font-size: 0.8rem;
+    color: #64748b;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -61,36 +66,36 @@ label {
     align-items: center;
 }
 
-/* Símbolo da moeda fixo dentro do input */
+/* Ícones de moeda fixos e elegantes */
 .currency-symbol {
     position: absolute;
     left: 16px;
-    color: #9ca3af;
+    color: #94a3b8;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
 
 input {
     width: 100%;
-    padding: 14px 16px 14px 50px; /* Abre espaço na esquerda para o símbolo */
-    font-size: 1.2rem;
+    padding: 14px 16px 14px 54px; /* Espaço para o símbolo da moeda */
+    font-size: 1.15rem;
     font-weight: 600;
-    color: #1f2937;
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
+    color: #0f172a;
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
     outline: none;
     transition: all 0.2s ease;
-    background-color: #f9fafb;
 }
 
 input:focus {
-    border-color: #10b981; /* Verde esmeralda */
+    border-color: #10b981; /* Borda verde esmeralda ao focar */
     background-color: #ffffff;
-    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
 }
 
 /* ==========================================================================
-   4. BOTÃO DE CONVERSÃO
+   4. BOTÃO PRINCIPAL (CONVERTER)
    ========================================================================== */
 .btn-convert {
     width: 100%;
@@ -98,20 +103,21 @@ input:focus {
     font-size: 1rem;
     font-weight: 700;
     color: #ffffff;
-    background: linear-gradient(135deg, #10b981, #059669);
+    /* Degradê verde esmeralda para dar destaque de ação */
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.4);
     transition: all 0.2s ease;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .btn-convert:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 12px 24px -5px rgba(16, 185, 129, 0.5);
 }
 
 .btn-convert:active {
@@ -119,26 +125,65 @@ input:focus {
 }
 
 /* ==========================================================================
-   5. ÁREA DE RESULTADO (ORGANIZADA)
+   5. NOVOS BOTÕES DE NAVEGAÇÃO INTERNA
+   ========================================================================== */
+.botoes-nav {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn-link {
+    flex: 1;
+    text-align: center;
+    padding: 11px 8px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #475569;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.btn-link:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+    transform: translateY(-1px);
+}
+
+.btn-link:active {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   6. CAIXA DE RESULTADO
    ========================================================================== */
 .result-box {
-    background-color: #f0fdf4;
-    border: 1px solid #bbf7d0;
-    border-radius: 12px;
-    padding: 20px;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 1px solid #a7f3d0;
+    border-radius: 14px;
+    padding: 18px;
     text-align: center;
-    display: none; /* Só aparece após o clique */
 }
 
 .result-title {
-    font-size: 0.9rem;
-    color: #166534;
-    font-weight: 600;
-    margin-bottom: 5px;
+    font-size: 0.85rem;
+    color: #065f46;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
 }
 
 .result-value {
-    font-size: 1.8rem;
-    color: #15803d;
+    font-size: 2rem;
+    color: #047857;
     font-weight: 800;
+    letter-spacing: -0.5px;
 }
